@@ -10,7 +10,7 @@ include_once "Chimpanzee.php";
 $gorille = new Gorilla();
 $gorille->setName("Kong");
 $chimpanzee = new Chimpanzee();
-$chimpanzee->setName("Le Biliothécaire");
+$chimpanzee->setName("Le Bibliothécaire");
 
 $gorille->speak();
 $chimpanzee->speak();
