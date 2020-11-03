@@ -3,12 +3,23 @@ abstract class Animal
 {
     private string $name;
     private string $food;
+    private BehaviourSpeaking $behaviourSpeaking;
 
-    public function __construct(string $name) {
+    public function __construct(string $name, BehaviourSpeaking $behaviourSpeaking) {
         $this->setName($name);
-        $this ->setFood("inconnu");
+        $this->setFood("inconnu");
+        $this->setBehaviourSpeaking($behaviourSpeaking);
     }
 
+    public function getBehaviourSpeaking(): BehaviourSpeaking
+    {
+        return $this->behaviourSpeaking;
+    }
+
+    public function setBehaviourSpeaking(BehaviourSpeaking $behaviourSpeaking): void
+    {
+        $this->behaviourSpeaking = $behaviourSpeaking;
+    }
     public function getFood(): string {
         return $this->food;
     }
@@ -25,7 +36,9 @@ abstract class Animal
         $this->name = $name;
     }
 
-    public abstract function speak(): void;
+    public function speak(): void {
+        print($this->getName() . " " . $this->getBehaviourSpeaking()->speak() . "\n");
+    }
 
     public function eat() {
         print($this->getName() . " mange " . $this->getFood() . "\n");

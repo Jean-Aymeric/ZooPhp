@@ -3,13 +3,8 @@ include_once "Animal.php";
 
 abstract class Reptile extends Animal {
 
-    public function __construct(string $name) {
-        parent::__construct($name);
+    public function __construct(string $name, BehaviourSpeaking $behaviourSpeaking) {
+        parent::__construct($name, $behaviourSpeaking);
         $this->setFood("viande");
     }
-
-    public function speak(): void {
-        print(parent::getName() . " : Grrrrr\n");
-    }
-
 }

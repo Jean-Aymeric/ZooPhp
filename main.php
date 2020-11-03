@@ -10,20 +10,32 @@ include_once "Crocodile.php";
 include_once "Godzilla.php";
 include_once "Zoo.php";
 include_once "Shark.php";
+include_once "BehaviourSpeaking.php";
+include_once "BehaviourSpeakingLikeAnAnimal.php";
+include_once "BehaviourSpeakingLikeAHuman.php";
+include_once "BehaviourSpeakingLikeAnApe.php";
 
 $zoo = new Zoo();
-for ($i = 0; $i < 5; $i++) {
-    $zoo->addAnimal(new Gorilla("Kong " . $i));
-}
-$zoo->addAnimal(new Chimpanzee("Le Bibliothécaire"));
-$zoo->addAnimal(new Crocodile("Krok"));
-$zoo->addAnimal(new Crocodile("Krak"));
-$zoo->addAnimal(new GodZilla("GODZILLA"));
-$zoo->addAnimal(new Shark("Claw"));
+$zoo->addAnimal(new Gorilla("Kong", new BehaviourSpeakingLikeAnApe()));
+$zoo->addAnimal(new Chimpanzee("Le Bibliothécaire", new BehaviourSpeakingLikeAnApe()));
+$zoo->addAnimal(new Crocodile("Krok", new BehaviourSpeakingLikeAnAnimal()));
+$zoo->addAnimal(new Crocodile("Krak", new BehaviourSpeakingLikeAnAnimal()));
+$zoo->addAnimal(new GodZilla("GODZILLA", new BehaviourSpeakingLikeAnAnimal()));
+$zoo->addAnimal(new Shark("Claw", new BehaviourSpeakingLikeAnAnimal()));
 
 foreach ($zoo->getAnimals() as $animal) {
-    //$animal->speak();
-    $animal->eat();
+    $animal->speak();
+    //$animal->eat();
+}
+print("\n");
+foreach ($zoo->getAnimals() as $animal) {
+    $animal->setBehaviourSpeaking(new BehaviourSpeakingLikeAHuman());
+    $animal->speak();
+}
+print("\n");
+foreach ($zoo->getAnimals() as $animal) {
+    $animal->setBehaviourSpeaking(new BehaviourSpeakingLikeAnApe());
+    $animal->speak();
 }
 
 print ("Il y a " . $zoo->getAnimalsCount() . " animaux dans le zoo.\n");

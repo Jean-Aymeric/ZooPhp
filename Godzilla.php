@@ -3,8 +3,8 @@
 
 class Godzilla extends Reptile {
 
-    public function __construct(string $name) {
-        parent::__construct($name);
+    public function __construct(string $name, BehaviourSpeaking $behaviourSpeaking) {
+        parent::__construct($name, $behaviourSpeaking);
         $this->setFood("des villes");
     }
 
