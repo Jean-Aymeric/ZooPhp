@@ -16,4 +16,8 @@ class Zoo {
     {
         return $this->animals;
     }
+
+    public function getAnimalsCount(): int {
+        return $this->getAnimals()->count();
+    }
 }
