@@ -23,6 +23,7 @@ $zoo->addAnimal(new Shark("Claw"));
 
 foreach ($zoo->getAnimals() as $animal) {
     $animal->speak();
+    $animal->eat();
 }
 
 print ("Il y a " . $zoo->getAnimalsCount() . " animaux dans le zoo.\n");
