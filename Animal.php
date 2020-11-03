@@ -10,4 +10,6 @@ abstract class Animal
     public function setName(string $name): void {
         $this->name = $name;
     }
+
+    public abstract function speak(): void;
 }
