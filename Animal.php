@@ -3,6 +3,10 @@ abstract class Animal
 {
     private string $name;
 
+    public function __construct(string $name) {
+        $this->setName($name);
+    }
+
     public function getName(): string {
         return $this->name;
     }
