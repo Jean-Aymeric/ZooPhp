@@ -22,7 +22,7 @@ $zoo->addAnimal(new GodZilla("GODZILLA"));
 $zoo->addAnimal(new Shark("Claw"));
 
 foreach ($zoo->getAnimals() as $animal) {
-    $animal->speak();
+    //$animal->speak();
     $animal->eat();
 }
 
